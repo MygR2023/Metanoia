@@ -1,0 +1,614 @@
+@charset "UTF-8";
+/* CSS Document */
+
+html {
+	
+  font-family: "Noto Sans JP", sans-serif;
+/*	font-family: "M PLUS Rounded 1c", sans-serif;*/
+	scroll-behavior: smooth;
+  
+}
+
+.Daruma {
+	font-family: "Darumadrop One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.MPLUS {
+	 font-family: "M PLUS Rounded 1c", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.container {
+	width: 90%;
+	max-width: 1120px;
+/*	background-color: #0830fe;*/
+	margin: 0 auto;
+	position: relative;
+	padding: 2rem;
+}
+
+.flex {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+/*ヘッダー*/
+header {
+	padding: 27px 0;
+}
+
+/*
+.logo {
+	font-size: 50px;
+	font-weight: 700;
+	letter-spacing: -0.04em;
+}
+*/
+
+.logo img {
+	width: 120px;
+	height: auto;
+}
+
+.header_menu li {
+	margin-left: 40px;
+}
+
+.header_menu li a {
+	font-size: 20px;
+	transition: .3s;
+}
+
+.header_menu li a:hover {
+	color: #0006F4;
+	transition: .3s;
+}
+
+
+
+@media only screen and (max-width:768px) {
+	header .container {
+		justify-content: center;
+	}
+	.header_menu li {
+	 margin: 20px 16px 0;
+}
+}
+
+/*メイン*/
+#hero {
+	background-image: url("../images/TOP/卒制デザイン.png");
+	background-position: center;
+	background-size: cover;
+	height: 580px;
+	/* 画面幅全体に広げる */
+	width: 100%; 
+    
+ 
+/*	border-radius: 10px; 角丸くする*/
+	display: flex;
+	align-items: center;
+	margin-bottom: 100px;
+}
+
+.hero_inner {
+/*
+	z-index: 2;
+	color: #fff;
+	width: 100%;
+	text-align: center;
+*/
+}
+
+.hero_inner p {
+	font-size: 20px;
+	font-weight: 500;
+	margin-bottom: 16px;
+}
+
+.hero_inner h1 {
+	font-size: 32px;
+	font-weight: 700;
+	margin-bottom: 30px;
+}
+
+.slider-wrapper {
+	position: relative;
+	max-width: 48rem;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.slider {
+	display: flex;
+	/* 修正: 全画像の合計幅を設定し、横に広がるようにする */
+    width: 360%; /* (画像12枚) x (30% / 1枚) */
+	aspect-ratio: 16/9;
+	overflow-x: auto;
+	/* 連続移動の場合、スクロールスナップは不要なので削除 */
+    /* scroll-snap-type: x mandatory; */
+    /* scroll-behavior: smooth; */
+	box-shadow: 0 1.5rem 3rem -0.75rem hsla(0,0%,0.25);
+	border-radius: 0.5rem;
+	/* アニメーションの適用 */
+    animation: continuous-slide 20s linear infinite;
+    /* マウスオーバーで一時停止 */
+    animation-play-state: running; 
+}
+
+/* マウスオーバーでアニメーションを一時停止する */
+.slider-wrapper:hover .slider {
+    animation-play-state: paused;
+}
+
+.slider img {
+	flex: 0 0 30%;
+/*	scroll-snap-align: start;*/
+	object-fit: cover;
+	mask-image:radial-gradient(
+		ellipse at center,
+		black 0%,
+		black 30%,
+		transparent 100%
+	);
+/*	filter: blur(3px);*/
+}
+
+@keyframes continuous-slide {
+    0% {
+        transform: translateX(0);
+    }
+    /* 修正: 元の画像セット6枚分 (6 x 30% = 180%) だけ移動 */
+    100% {
+        transform: translateX(-180%);
+    }
+}
+
+
+.slider-nav {
+	display: flex;
+	column-gap: 1rem;
+	position: absolute;
+	bottom: 1.25rem;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 1;
+}
+
+.slider-nav a {
+	width: 0.5rem;
+	height: 0.5rem;
+	border-radius: 50%;
+	background-color: #0006F4;
+	opacity: 0.75;
+	transition: opacity ease 250ms;
+}
+.slider-nav a:hover {
+	opacity: 1;
+}
+
+@media only screen and (max-width:768px) {
+	#hero {
+		background-image: url("../images/iphone/iphone_top.png");
+	background-position: center;
+	background-size: cover;
+	height: 580px;
+	/* 画面幅全体に広げる */
+	width: 100%; 
+    
+ 
+/*	border-radius: 10px; 角丸くする*/
+	display: flex;
+	align-items: center;
+	margin-bottom: 100px;
+	}
+	 
+	.hero_inner p {font-size: 15px;}
+	.hero_inner h1 {font-size: 17px;}
+
+}
+
+/*コンセプト*/
+
+#Consept {
+	margin-bottom: 30px;
+}
+
+.title {
+	font-size: 20px;
+	font-weight: 500px;
+	color: #060AA3;
+	margin-bottom: 40px;
+	opacity: 0;
+}
+
+#Consept h2 {
+	font-size: 30px;
+	font-weight: 700;
+	margin-bottom: 60px;
+}
+
+#Consept h3 {
+	font-size: 36px;
+	font-weight: 700;
+	margin-bottom: 60px;
+}
+
+/* PC/タブレット表示時（デフォルト） */
+.sp-br {
+    display: none;
+}
+
+.column-2 {
+	width: 48%;
+}
+
+.text {
+	line-height: 2;
+}
+
+.Concept-img {
+	background-image: url("../images/ehonn /eh_a_.PNG");
+	background-position: center;
+	background-size: cover;
+	height: 340px;
+	border-radius: 10px;
+}
+
+@media only screen and (max-width:768px) {
+	#Consept h3 {
+	font-size: 24px;
+		line-height: 1.5;
+}
+	.column-2 {
+	width: 100%;
+}
+	.text {
+	line-height: 1.7;
+	font-size: 15px;
+}
+	.Concept-img {
+		margin-top: 30px;
+	}
+	
+	.sp-br {
+        display: inline; /* <br>タグの親要素を表示させる */
+    }
+}
+
+/*ストーリー*/
+
+/* ================================================= */
+/* 1. 親要素 (#Story): スクロールコンテナの定義 */
+/* ================================================= */
+#Story {
+    /* スクロールをこの要素内だけに限定します */
+    overflow-y: scroll; 
+    
+    /* 画面の高さいっぱいに表示します */
+    height: 100vh; 
+    
+    /* スクロールスナップの有効化（垂直方向、強制スナップ） */
+    scroll-snap-type: y mandatory; 
+    
+    /* スクロール時のアニメーションを滑らかにします */
+    scroll-behavior: smooth; 
+}
+
+/* h2 タグなど、ストーリーページではない要素がスナップしないように設定 */
+#Story > h2 {
+    scroll-snap-align: none;
+}
+
+/* ================================================= */
+/* 2. 子要素 (.story-page): 各ページの設定 */
+/* ================================================= */
+.story-page {
+    /* 画面の高さいっぱいに設定し、1ページ分の領域を確保 */
+    height: 100vh; 
+    width: 100%;
+    
+    /* スナップ位置の設定: 常にセクションの先頭で止める */
+    scroll-snap-align: start; 
+    
+    /* 背景画像の設定 */
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+	opacity: 0; /* 初期状態では完全に透明 */
+    transform: translateY(20px); /* 少し下から始まるように */
+    transition: opacity 1s ease-out, transform 1s ease-out; /* 1秒かけて滑らかに変化 */
+}
+
+/* ================================================= */
+/* 2. フェードインアニメーションの終了状態 (このクラスをJSで追加) */
+/* ================================================= */
+.story-page.is-visible {
+    opacity: 1; /* 不透明にして表示 */
+    transform: translateY(0); /* 元の位置に戻る */
+}
+
+/* ================================================= */
+/* 3. 各ページへの画像割り当て */
+/* ================================================= */
+.story-page_01 {
+    background-image: url("../images/ehonn /eh_01.PNG"); 
+}
+
+.story-page_02 {
+    background-image: url("../images/ehonn /eh_02.PNG");
+}
+
+.story-page_03 {
+    background-image: url("../images/ehonn /eh_03.PNG");
+}
+
+.story-page_04 {
+    background-image: url("../images/ehonn /eh_04.PNG");
+}
+
+.story-page_05-1 {
+    background-image: url("../images/ehonn /eh_05-1.PNG");
+}
+.story-page_05-2 {
+    background-image: url("../images/ehonn /eh_05-2.PNG");
+}
+
+.story-page_06-1 {
+    background-image: url("../images/ehonn /eh_06-1.PNG");
+}
+.story-page_06-2 {
+    background-image: url("../images/ehonn /eh_06-2.PNG");
+}
+
+.story-page_07 {
+    background-image: url("../images/ehonn /eh_07.PNG");
+}
+.story-page_08 {
+    background-image: url("../images/ehonn /eh_08.PNG");
+}
+.story-page_09 {
+    background-image: url("../images/ehonn /eh_09.PNG");
+}
+.story-page_10 {
+    background-image: url("../images/ehonn /eh_10.PNG");
+}
+.story-page_11 {
+    background-image: url("../images/ehonn /eh_11.PNG");
+}
+.story-page_12 {
+    background-image: url("../images/ehonn /eh_12.PNG");
+}
+.story-page_13 {
+    background-image: url("../images/ehonn /eh_13.PNG");
+}
+.story-page_14 {
+    background-image: url("../images/ehonn /eh_14.JPG");
+}
+.story-page_15 {
+    background-image: url("../images/ehonn /eh_15.PNG");
+}
+.story-page_16 {
+    background-image: url("../images/ehonn /eh_16.PNG");
+}
+.story-page_17 {
+    background-image: url("../images/ehonn /eh_17.PNG");
+}
+.story-page_18 {
+    background-image: url("../images/ehonn /eh_18.PNG");
+}
+.story-page_19 {
+    background-image: url("../images/ehonn /eh_19.PNG");
+}
+.story-page_20 {
+    background-image: url("../images/ehonn /eh_20.png");
+}
+
+
+.story-text {
+	 text-align: center; /* テキストをブロック内で中央寄せ */
+	 padding: 80px 110px; /* 各クレジットブロック間の縦のスペースを大きく取る */
+}
+/*キャラクター*/
+#Character {
+	margin-bottom: 200px;
+}
+
+.column-3,
+.column-4,
+.column-5,
+.column-6 {
+	margin-right: 20px;
+	width: 48%;
+}
+
+.column-3.Character-img_1 {
+	background-image: url("../images/character/hamster_Rin.PNG");}
+.column-4.Character-img_2 {
+	background-image: url("../images/character/human_Rin.PNG");}
+.column-5.Character-img_3 {
+	background-image: url("../images/character/pupu.PNG");}
+.column-6.Character-img_4 {
+	background-image: url("../images/character/tencho.png");
+}
+
+.column-3.Character-img_1,
+.column-4.Character-img_2,
+.column-5.Character-img_3,
+.column-6.Character-img_4 {
+	background-position: center;
+	background-size: cover;
+	height: 340px;
+	border-radius: 10px;
+}
+
+@media only screen and (max-width:768px) {
+		.column-3 {
+	width: 100%;
+}
+	.text {
+	line-height: 1.7;
+	font-size: 15px;
+}
+	.Character-img_1 {
+		margin-top: 30px;
+	}
+	
+	.column-4 {
+	width: 100%;
+}
+
+	.Character-img_2 {
+		margin-top: 30px;
+	}
+	
+	.column-5 {
+	width: 100%;
+}
+
+	.Character-img_3 {
+		margin-top: 30px;
+	}
+	
+}
+
+.column-6 {
+	width: 100%;
+}
+
+	.Character-img_4 {
+		margin-top: 30px;
+	}
+	
+
+
+/*ボトム*/
+.obi {
+	background-image: url("../images/TOP/eh_top_bluestar.PNG");
+	background-position: center;
+	background-size: cover;
+	width: 50%;
+	height: 340px;
+	margin: 50px auto;
+}
+
+@media (max-width: 767px) {
+	.obi {
+		width: 90%;
+		height: 250px;
+	}
+}
+
+/*エンドロール*/
+.movie-credits {
+    /* 必須：背景を黒に、文字を白にする */
+   
+    color: #000000;
+    
+    /* 画面いっぱいの高さを確保して、中央に配置しやすくする */
+    min-height: 100vh; 
+    padding: 500px 90px; /* 上下の余白を多めにとる */
+    
+    /* コンテンツ全体を中央寄せするためのFlexbox設定 */
+    display: flex;
+    flex-direction: column; /* 縦に並べる */
+    justify-content: center; /* 垂直方向の中央寄せ */
+    align-items: center; /* 水平方向の中央寄せ */
+    
+    
+    letter-spacing: 0.1em; /* 字間を少し開けて、より洗練された印象に */
+}
+
+/* ----------------------------------- */
+/* 2. 各ブロック（役割と名前）のスタイル */
+/* ----------------------------------- */
+.credit-block {
+    text-align: center; /* テキストをブロック内で中央寄せ */
+    margin-bottom: 80px; /* 各クレジットブロック間の縦のスペースを大きく取る */
+}
+
+.role {
+    font-size: 1.2em; /* 役割の文字サイズ */
+    font-weight: 200; /* 役割は細字にする */
+    margin-bottom: 5px; /* 役割と名前の間のスペースを小さくする */
+    padding: 0;
+    margin-top: 0;
+}
+
+.name {
+    font-size: 1.8em; /* 名前の文字サイズを役割よりも大きくする */
+    font-weight: 500; /* 名前を太字にする */
+    padding: 0;
+    margin-top: 0;
+}
+
+.s-text {
+	font-size: .5em;
+}
+
+/* 画面の幅が狭い場合の調整 */
+@media (max-width: 767px) {
+   .movie-credits {
+        /* 左右の余白をスマホの幅に合わせて小さくする */
+        padding: 400px 30px; 
+    }
+    
+    .credit-block {
+        /* ブロック間の縦スペースも少し小さくする */
+        margin-bottom: 50px; 
+    }
+    
+    .role {
+        /* 役割の文字サイズを小さく調整 */
+        font-size: 1em; 
+    }
+
+    .name {
+        /* 名前の文字サイズを小さく調整 */
+        font-size: 1.5em; 
+    }
+	
+}
+
+
+/*フッター*/
+footer {
+	background-image: url("../images/under/footer.png");
+	text-align: center;
+	margin: 90px 0;
+	height: 400px;
+	background-size: 1920px 300px;
+	background-repeat: no-repeat;
+	background-position: bottom;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	align-items: center;
+	
+	padding-top: 50px;
+	padding-bottom: 0;
+}
+
+footer .logo img {
+	width: 200px;
+	height: auto;
+}
+
+footer .logo,.copyright {
+	position: relative;
+	z-index: 10;
+}
+
+.copyright {
+	color: #fff;
+	font-size: 12px;
+	margin-top: 20px;
+	margin-bottom: 0;
+}
+
+
